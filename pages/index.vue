@@ -6,7 +6,7 @@
                     <h1 class="font-bold uppercase p-4">
                         <NuxtLink to="/" class="hover:text-gray-700">Food Ninja</NuxtLink>
                     </h1>
-                    <div class="px-4 cursor-pointer md:hidden" @click="toggleNav">
+                    <div class="px-4 cursor-pointer md:hidden" @click='toggleMenu()'>
                         <svg class="w-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -194,8 +194,20 @@
 </template>
 
 <script lang="ts" setup>
-let showMenu = ref(false);
-const toggleNav = () => (showMenu.value = !showMenu.value);
+// ------- Vue in-built reactivity API Example --------
+const showMenu = ref(false);
+const toggleMenu = () => { showMenu.value = !showMenu.value };
+
+
+// ------ Pinia store example ---------
+/*
+import { useMyMobileMenuStore } from '~/stores/mobileMenu';
+
+const store = useMyMobileMenuStore();
+const { showMenu } = storeToRefs(store);
+const { toggleMenu } = store;
+
+*/
 </script>
 
 <style></style>
